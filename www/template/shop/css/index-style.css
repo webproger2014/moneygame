@@ -1,0 +1,228 @@
+*::-webkit-input-placeholder {
+	color: #666;
+	opacity: 1;
+}
+*:-moz-placeholder {
+	color: #666;
+	opacity: 1;
+}
+*::-moz-placeholder {
+	color: #666;
+	opacity: 1;
+}
+*:-ms-input-placeholder {
+	color: #666;
+	opacity: 1;
+}
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid {
+	
+}
+body input:required:valid,
+body textarea:required:valid {
+	
+}
+body {
+	font-family: "RobotoRegular", sans-serif;
+	font-size: 16px;
+    background-color: #D8DDE3;
+    
+}
+
+nav.top-nav {
+    width: 100%;
+    height: 64px;
+    background-color: #505B71;
+}
+
+nav.top-nav ul {
+    margin: 0px 20px;
+    display: inline-block;
+    width: 475px;
+}
+
+nav.top-nav li{
+    display: inline-block;
+    height: 64px;
+    line-height: 64px;
+    color: #fff;
+}
+
+nav.top-nav li a {
+    display: inline-block;
+    height: 64px;
+    line-height: 64px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #fff;
+    background-color: #505B71;
+}
+
+nav.top-nav li a:hover {
+    background-color: #3C4355;
+    -webkit-transition: all 0.2s ease-out 0s;
+            -moz-transition: all 0.2s ease-out 0s;
+              -o-transition: all 0.2s ease-out 0s;
+         transition: all 0.2s ease-out 0s;
+}
+
+a.register-link {
+    display: block;
+    float: right;
+    color: #fff;
+    text-decoration: none;
+    height: 64px;
+    line-height: 64px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-right: 20px;
+    -webkit-transition: all 0.2s ease-out 0s;
+            -moz-transition: all 0.2s ease-out 0s;
+              -o-transition: all 0.2s ease-out 0s;
+         transition: all 0.2s ease-out 0s;
+}
+
+
+a.register-link:hover {
+    color: #00BCD6;
+}
+
+a:focus {
+    outline: none;
+}
+
+
+
+
+
+section {
+    margin: 20px;
+    background-color: #fff;
+    -webkit-border-radius: 2px;
+            border-radius: 2px;
+    padding: 20px;
+}
+
+section.introduction-section {
+    margin: 60px 20px 20px;
+}
+
+section.raiting-section {
+    margin: 20px 20px 60px;
+}
+
+section > p {
+    line-height: 22px;
+}
+
+table, th, td {
+  border: none; }
+
+table {
+  width: 100%;
+  display: table; }
+  table.bordered > thead > tr, table.bordered > tbody > tr {
+    border-bottom: 1px solid #d0d0d0; }
+  table.striped > tbody > tr:nth-child(odd) {
+    background-color: #f2f2f2; }
+  table.striped > tbody > tr > td {
+    -webkit-border-radius: 0px;
+            border-radius: 0px; }
+  table.hoverable > tbody > tr {
+    -webkit-transition: background-color .25s ease;
+    -moz-transition: background-color .25s ease;
+      -o-transition: background-color .25s ease;
+         transition: background-color .25s ease; }
+    table.hoverable > tbody > tr:hover {
+      background-color: #f2f2f2; }
+  table.centered thead tr th, table.centered tbody tr td {
+    text-align: center; }
+
+thead {
+  border-bottom: 1px solid #d0d0d0; }
+
+td, th {
+  padding: 15px 5px;
+  display: table-cell;
+  text-align: left;
+  vertical-align: middle;
+  -webkit-border-radius: 2px;
+          border-radius: 2px; }
+
+h1.section-name {
+    text-align: center;
+    margin: 10px auto 10px;
+    color: #3C4355;
+    font-size: 24px;
+    text-transform: uppercase;
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+td[data-field="kills"] {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+div.icons-container {
+    background-color: #505B71;
+    padding: 25px 0px;
+}
+
+footer {
+    position: relative;
+    height: 150px;
+    background-color: #3C4355;
+}
+
+footer > p {
+    position: absolute;
+    color: #fbf1e7;
+    text-align: center;
+    width: 100%;
+    left: 0px;
+    top: 70px;
+}
+
+div.icons {
+    width: 183px;
+    margin: 0px auto;
+}
+
+img.icon-ig, img.icon-vk, img.icon-tw {
+    -webkit-border-radius: 50%;
+            border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    vertical-align:middle;
+    -webkit-transition: 0.3s background-color ease-out;
+            -moz-transition: 0.3s background-color ease-out;
+              -o-transition: 0.3s background-color ease-out;
+         transition: 0.3s background-color ease-out;
+}
+
+img.icon-vk {
+    margin: 0px 27px;
+}
+
+img.icon-ig:hover, img.icon-vk:hover, img.icon-tw:hover {
+    background-color: #00BCD6;
+}
