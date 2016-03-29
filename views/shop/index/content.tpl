@@ -7,11 +7,11 @@
 
 <!-- Отрисовываем меню -->
      <br><br>МЕНЮ
-    <ul>     
+    <ul class="categories">     
        <!-- Категория -->
       {foreach $cat as $categories}
         <li><a href='#'>{$categories['name']}</a>
-            <ul>
+            <ul class="subcategories">
                 <!-- Подгатегория -->
                {foreach $categories['subcat'] as $subcat}
                  <li><a href='#'>{$subcat['name']}</a>
