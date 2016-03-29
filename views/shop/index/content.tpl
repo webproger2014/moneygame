@@ -1,4 +1,11 @@
-     <!-- Отрисовываем меню -->
+
+<!-- SEARC TO PRODUCT-->
+ <div class="search">
+   <input type="text">
+   <button>Поиск</button>
+ </div>
+
+<!-- Отрисовываем меню -->
      <br><br>МЕНЮ
     <ul>     
        <!-- Категория -->
