@@ -59,10 +59,28 @@ $('.subcategories-search li a').click(function () {
 
 //Искать в данном жанре
 $('.genre-search li a').click(function () {
-    var id = $(this).attr('genre-id'),
+    var id = $(this).attr('genre_id'),
         href = '?service=shop&controller=product&action=searchingenre&id=' + id;
         
    $('.search button').attr('href-search', href); 
+});
+
+$('.search button').click(function () {
+    var href = $(this).attr('href-search'),
+        msg  = $('.search input').val();
+        
+        if (msg != '') {
+           $.ajax({
+            type: "POST",
+            async: true,
+            url: href + '&msg=' + msg,
+            dataType: 'json',
+            success: function (data) {
+             console.log(data);
+            }
+           });    
+        }
+    console.log(href + '&msg=' + msg);
 });
 //<
 //Добавить в корзину

@@ -51,3 +51,13 @@ function pageProductAction($smarty, $infoUser = null) {
     }
 }
 
+//Поиск товара в данной категории
+function searchincategoryAction() {
+    $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
+    $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+    
+    $data['products'] = getProductInCategory($id, $msg);
+    
+    echo json_encode($data);
+}
+
