@@ -39,6 +39,32 @@ $('.categories li a').click(function () {
        }
        
 }); 
+
+//>Для меню поиска
+//Искать в данной категории
+$('.categories-search li a').click(function () {
+    var id = $(this).attr('cat-id'),
+        href = '?service=shop&controller=product&action=searchincategory&id=' + id;
+        
+   $('.search button').attr('href-search', href); 
+});
+
+//Искать в данной подкатегории
+$('.subcategories-search li a').click(function () {
+    var id = $(this).attr('cat-id'),
+        href = '?service=shop&controller=product&action=searchinsubcategory&id=' + id;
+        
+   $('.search button').attr('href-search', href); 
+});
+
+//Искать в данном жанре
+$('.genre-search li a').click(function () {
+    var id = $(this).attr('genre-id'),
+        href = '?service=shop&controller=product&action=searchingenre&id=' + id;
+        
+   $('.search button').attr('href-search', href); 
+});
+//<
 //Добавить в корзину
 function addProduct(self, id) {
     console.log(id);
