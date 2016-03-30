@@ -18,6 +18,27 @@ $('.genre li a').click(function () {
     });   
 });
 
+//Показ подкатегорий
+$('.categories li a').click(function () {
+   var li = $(this).parent(),
+       ul = $(li).children('.subcategories');
+   
+   if ($(ul).html() != '') {
+       ul.slideToggle(100);
+   }
+});
+
+//Показ жанров
+ $('.subcategories li a').click(function () {
+   var li = $(this).parent(),
+       ul = $(li).children('ul'); 
+       
+       if ($(ul).children('li').text() != '') {
+           $(ul).slideToggle(100);
+           console.log($(ul).text());
+       }
+       
+}); 
 //Добавить в корзину
 function addProduct(self, id) {
     console.log(id);

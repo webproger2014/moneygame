@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="{$teplateWebPath}css/reset.css" />
 	<link rel="stylesheet" href="{$teplateWebPath}css/fonts.css" />
 	<link rel="stylesheet" href="{$teplateWebPath}css/index-style.css" />
+        <link rel="stylesheet" href="{$teplateWebPath}css/mains.css" />
 </head>
 <body>
     <nav class="top-nav">
