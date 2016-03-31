@@ -41,30 +41,7 @@ $('.categories li a').click(function () {
 }); 
 
 //>Для меню поиска
-//Искать в данной категории
-$('.categories-search li a').click(function () {
-    var id = $(this).attr('cat-id'),
-        href = '?service=shop&controller=product&action=searchincategory&id=' + id;
-        
-   $('.search button').attr('href-search', href); 
-});
-
-//Искать в данной подкатегории
-$('.subcategories-search li a').click(function () {
-    var id = $(this).attr('cat-id'),
-        href = '?service=shop&controller=product&action=searchinsubcategory&id=' + id;
-        
-   $('.search button').attr('href-search', href); 
-});
-
-//Искать в данном жанре
-$('.genre-search li a').click(function () {
-    var id = $(this).attr('genre_id'),
-        href = '?service=shop&controller=product&action=searchingenre&id=' + id;
-        
-   $('.search button').attr('href-search', href); 
-});
-
+//Поиск товара
 $('.search button').click(function () {
     var href = $(this).attr('href-search'),
         msg  = $('.search input').val();
@@ -76,7 +53,11 @@ $('.search button').click(function () {
             url: href + '&msg=' + msg,
             dataType: 'json',
             success: function (data) {
-             console.log(data);
+             if (data['success'] == 1) {
+                 showProducts(data['products']);
+             } else {
+                    $('.content').html(data['messages']);
+             }
             }
            });    
         }
@@ -100,7 +81,6 @@ function addProduct(self, id) {
 
 //Удалить из корзины
  function removProduct(self, id) {
-     console.log(id);
    $.ajax({
        type: "POST",
        async: true,

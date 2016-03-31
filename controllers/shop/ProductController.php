@@ -58,6 +58,47 @@ function searchincategoryAction() {
     
     $data['products'] = getProductInCategory($id, $msg);
     
+    if (!$data['products']) {
+        $data['messages'] = 'Поиск не дал результатов';
+        $data['success'] = 0;
+    } else {
+        $data['success'] = 1;
+    }
+    
+    echo json_encode($data);
+}
+
+//Поиск товара в данной подкатегории
+function searchinsubcategoryAction() {
+    $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
+    $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+    
+    $data['products'] = getProductInSubCategory($id, $msg);
+    
+    if (!$data['products']) {
+        $data['messages'] = 'Поиск не дал результатов';
+        $data['success'] = 0;
+    } else {
+        $data['success'] = 1;
+    }
+    
+    echo json_encode($data);
+}
+
+//Поиск товара в данном жанре
+function searchingenreAction() {
+    $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
+    $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+    
+    $data['products'] = getProductInGenre($id, $msg);
+    
+    if (!$data['products']) {
+        $data['messages'] = 'Поиск не дал результатов';
+        $data['success'] = 0;
+    } else {
+        $data['success'] = 1;
+    }
+    
     echo json_encode($data);
 }
 
