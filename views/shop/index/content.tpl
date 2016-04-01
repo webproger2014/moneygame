@@ -1,4 +1,9 @@
 
+<!-- SEARC TO PRODUCT-->
+ <div class="search">
+   <input type="text">
+ </div>
+
 <!-- Отрисовываем меню -->
    <div class="wrapper">
     <ul class="categories">     

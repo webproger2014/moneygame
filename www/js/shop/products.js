@@ -42,26 +42,24 @@ $('.categories li a').click(function () {
 
 //>Для меню поиска
 //Поиск товара
-$('.search button').click(function () {
-    var href = $(this).attr('href-search'),
-        msg  = $('.search input').val();
+$("div.search > input[type=text]").keyup(function () {
+    var msg  = $(this).val();
         
-        if (msg != '') {
+       if (msg != '') {
            $.ajax({
             type: "POST",
             async: true,
-            url: href + '&msg=' + msg,
+            url: '?service=shop&controller=product&action=search&msg=' + msg,
             dataType: 'json',
             success: function (data) {
              if (data['success'] == 1) {
                  showProducts(data['products']);
              } else {
-                    $('.content').html(data['messages']);
+                 $('.content').html(data['messages']);  
              }
             }
            });    
         }
-    console.log(href + '&msg=' + msg);
 });
 //<
 //Добавить в корзину

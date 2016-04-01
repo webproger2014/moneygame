@@ -178,6 +178,29 @@ function saveImages($images) {
     imagedestroy($images['image']);  
 }
 
+//Отправка почты
 function sendMail($email, $subject, $messages) {
     mail($email, $subject, $messages, "Content-type: text/html; charset=utf8' . '\r\n'");
+}
+
+//Удаляем символы из строки
+function delCharsStr($str) {
+   $str = trim(strip_tags($str), "/!@#№$;^%:?&()_|");
+   return $str;
+}
+
+function getArrWords($str) {
+    $str = explode(' ', $str);
+    
+    foreach ($str as $key => $value) {
+        if ($str[$key] == '') {
+            unset($str[$key]);
+        }
+    }
+    
+    if (count($str) < 2) {
+        $str = null;
+    }
+
+    return $str; 
 }

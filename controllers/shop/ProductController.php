@@ -52,12 +52,13 @@ function pageProductAction($smarty, $infoUser = null) {
 }
 
 //Поиск товара в данной категории
-function searchincategoryAction() {
-    $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
-    $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+function searchAction() {
+    $msg = isset($_GET['msg']) ? delCharsStr($_GET['msg']) : '';
+    if ($msg) {
+        $data = searchProductAction($msg);       
+    }
     
-    $data['products'] = getProductInCategory($id, $msg);
-    
+    //Если ничего не найдено
     if (!$data['products']) {
         $data['messages'] = 'Поиск не дал результатов';
         $data['success'] = 0;
@@ -68,37 +69,30 @@ function searchincategoryAction() {
     echo json_encode($data);
 }
 
-//Поиск товара в данной подкатегории
-function searchinsubcategoryAction() {
-    $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
-    $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+function searchProductAction($msg) {
+    $data['products'] = getProductByChar($msg); 
     
-    $data['products'] = getProductInSubCategory($id, $msg);
-    
+    //Ищем по подстроке с удалением 1 символа
     if (!$data['products']) {
-        $data['messages'] = 'Поиск не дал результатов';
-        $data['success'] = 0;
-    } else {
-        $data['success'] = 1;
-    }
-    
-    echo json_encode($data);
-}
-
-//Поиск товара в данном жанре
-function searchingenreAction() {
-    $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
-    $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-    
-    $data['products'] = getProductInGenre($id, $msg);
-    
+        $msg[strlen($msg) - 1] = '';
+        $msg = rtrim($msg);
+        if ($msg) {
+            $data['products'] = getProductByChar($msg);
+        }
+   }
+        
+    //Ищем по словам
     if (!$data['products']) {
-        $data['messages'] = 'Поиск не дал результатов';
-        $data['success'] = 0;
-    } else {
-        $data['success'] = 1;
-    }
-    
-    echo json_encode($data);
+         $msg = getArrWords($msg);
+         if ($msg) {
+             foreach ($msg as $val) {
+                 $data['products'] = getProductByChar($val);      
+                 if ($data['products']) {
+                     break;
+                 }
+             }
+        }
+    } 
+   
+   return $data;    
 }
-
