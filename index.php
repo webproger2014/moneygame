@@ -1,6 +1,11 @@
 <?php
  session_start();
- 
+  //>Подключаем API платёжной системы
+  require 'api/payeer/cpayeer.php';
+  //Подключение настроек payeer 
+  require 'config/payeer/config.php';
+  //<
+  
  //Определяем сервис
  $serviceName = isset($_GET['service']) ? strtolower($_GET['service']): null;
  
@@ -23,7 +28,7 @@
 
  //Определяем вызов функции
  $actionName = isset($_GET['action']) ? ucfirst($_GET['action']).'Action': 'Index';
-  
+ 
  loadPage($smarty, $controllerName, $actionName, $serviceName);
 
 

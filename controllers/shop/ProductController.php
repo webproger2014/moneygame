@@ -51,7 +51,7 @@ function pageProductAction($smarty, $infoUser = null) {
     }
 }
 
-//Поиск товара в данной категории
+//Поиск товара - фильтрация запроса
 function searchAction() {
     $msg = isset($_GET['msg']) ? delCharsStr($_GET['msg']) : '';
     if ($msg) {
@@ -69,6 +69,7 @@ function searchAction() {
     echo json_encode($data);
 }
 
+//Поиска товара
 function searchProductAction($msg) {
     $data['products'] = getProductByChar($msg); 
     

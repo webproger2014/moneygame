@@ -59,7 +59,7 @@
                 </div>
                 <div class="errors" id="emailReg"></div>
                 
-                <input class="register" type="value" onKeyUp="validNickReg(this, '#nickReg')"  placeholder="Ник" placeholder="Ник" name="NICK_REG" maxlength="30" id="nick">
+                <input class="register" type="value" onKeyUp="validNickReg(this, '#nickReg')"  placeholder="Ник"  name="NICK_REG" maxlength="30" id="nick">
                 <div class="autorise-status">
                     <i class="fa fa-check-square-o fa-lg"></i>
                     <i class="fa fa-minus-square-o fa-lg"></i>
@@ -67,12 +67,12 @@
                 <div class="errors" id="nickReg"></div>
                 
                 <a href="https://payeer.com/?partner=1390786" class="payeer-link" target="_blank">Регистрация payeer</a>
-                <input class="register" type="value" onKeyUp="validPayeer(this)"  placeholder="Payeer" name="PAYEER_REG" id="payeer">
+                <input class="register" type="value" onKeyUp="validPayeer(this, '#errorPayeer')"  placeholder="Payeer"  id="payeer">
                 <div class="autorise-status">
                     <i class="fa fa-check-square-o fa-lg"></i>
                     <i class="fa fa-minus-square-o fa-lg"></i>
                 </div>
-                <div class="errors"id="errorPayeer"></div>
+                <div class="errors" id="errorPayeer"></div>
 
                <!-- <div id="avatar-img" style=""></div>
                 <input class="register" type="file" placeholder="Payeer" name="AVATAR_REG" onchange="readTextFile(this)"> -->

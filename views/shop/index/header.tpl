@@ -28,7 +28,7 @@
                 <li><a href="#">О нас</a></li>
             </ul>
             <a href="?service=shop&controller=cart&action=showProduct" class="cart"><img width="25" src="{$teplateWebPath}css/icons/cart.png" alt="">
-             {$lenproducts}
+             <p id="lenproducts">{$lenproducts}</p>
             </a>
             <a class="register-link" href="?controller=Register&action=index">Вход | Регистрация</a>
         </div>

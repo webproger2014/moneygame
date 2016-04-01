@@ -125,6 +125,21 @@ function validNickReg(self, id) {
        }     
    });    
 }
+
+function validPayeer(self, id) {
+    if ($(self).val() != '') {
+       $.ajax({
+        type: "POST",
+        async: true,
+        url: "?controller=payeer&action=getAccount",
+        data: {'payeer': $(self).val()},
+         dataType: 'json',
+         success: function (data) {
+           getError(data, id);
+         }     
+       });     
+   }   
+}
 //<
 
 //Вход в аккаунт

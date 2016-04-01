@@ -35,9 +35,7 @@ $('.categories li a').click(function () {
        
        if ($(ul).children('li').text() != '') {
            $(ul).slideToggle(100);
-           console.log($(ul).text());
-       }
-       
+       }      
 }); 
 
 //>Для меню поиска
@@ -64,13 +62,24 @@ $("div.search > input[type=text]").keyup(function () {
 //<
 //Добавить в корзину
 function addProduct(self, id) {
-    console.log(id);
    $.ajax({
        type: "POST",
        async: true,
        url: '?service=shop&controller=Cart&action=setProduct&id=' + id,
        dataType: 'json',
        success: function (data) {
+          var price = $('.product_' + id + ' .price').text(),
+              summa = parseFloat($('#summa').text()) + parseFloat(price),
+              len = parseInt($('#lenproducts').text());
+          
+          //> Подсчитываем количество товаров в корзине
+          len++;
+          $('#lenproducts').text(len);
+          //<    
+          if ($('#summa')) {
+              $('#summa').text(summa);
+          }   
+           
           $(self).css('display', 'none');
           $('.removeproduct_' + id).css('display', 'block');
         }
@@ -85,6 +94,19 @@ function addProduct(self, id) {
        url: '?service=shop&controller=Cart&action=removProduct&id=' + id,
        dataType: 'json',
        success: function (data) {
+          var price = $('.product_' + id + ' .price').text(),
+              summa = parseFloat($('#summa').text()) - parseFloat(price),
+              len = parseInt($('#lenproducts').text());
+              
+              //> Подсчитываем количество товаров в корзине
+              len--;
+              $('#lenproducts').text(len);
+              //<
+  
+          if ($('#summa')) {
+              $('#summa').text(summa);
+          }
+          
           $(self).css('display', 'none');
           $('.addproduct_' + id).css('display', 'block');
         }

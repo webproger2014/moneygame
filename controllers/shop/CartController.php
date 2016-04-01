@@ -52,12 +52,18 @@ function removProductAction() {
 //Вернёт список товаров в корзине
 function showProductAction($smarty, $infoUser = null) {
     if (isset($_SESSION['products'])) {
-        $products = [];
-        foreach ($_SESSION['products'] as  $value) {
-            $products[] = getProductById($value);   
+        foreach ($_SESSION['products'] as  $key => $value) {
+            $products[] = getProductById($value);
         }
+        
+        $summa = 0;
+        foreach ($products as $key => $value) {
+            $summa += $products[$key]['price'];
+        }
+        $smarty -> assign('summa', $summa);
         $smarty -> assign('products', $products);
     }
+    
     
     //> Количество продуктов в корзине
     $lenproducts = 0 ;
@@ -80,3 +86,6 @@ function showProductAction($smarty, $infoUser = null) {
     } 
 }
 
+function summaAction() {
+    
+}
