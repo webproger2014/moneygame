@@ -85,5 +85,6 @@
     	
 	<script src="www/js/jquery-2.2.0.min.js"></script>
 	<script src="www/js/indexesFunction.js"></script>
+        <script src="www/js/payeer.js"></script>
 </body>
 </html>

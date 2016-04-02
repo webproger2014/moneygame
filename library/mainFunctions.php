@@ -204,3 +204,10 @@ function getArrWords($str) {
 
     return $str; 
 }
+
+function getClassOfJson($json) {
+    $json  = json_decode($json);
+    $class = unserialize($json);
+    
+    return $class;
+}

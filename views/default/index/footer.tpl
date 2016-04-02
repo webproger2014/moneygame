@@ -19,6 +19,7 @@
 	<script src="www/js/jquery-2.2.0.min.js"></script>
 	<script src="www/js/indexesFunction.js"></script>
         <script src="www/js/mainLibs.js"></script>
+        <script src="www/js/payeer.js"></script>
 	<!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
 	<!-- Google Analytics counter --><!-- /Google Analytics counter -->
 </body>

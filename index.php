@@ -1,10 +1,8 @@
 <?php
- session_start();
-  //>Подключаем API платёжной системы
-  require 'api/payeer/cpayeer.php';
-  //Подключение настроек payeer 
-  require 'config/payeer/config.php';
-  //<
+ session_start();  
+ //>Подключаем API платёжной системы
+ require 'api/payeer/cpayeer.php';
+ //<
   
  //Определяем сервис
  $serviceName = isset($_GET['service']) ? strtolower($_GET['service']): null;

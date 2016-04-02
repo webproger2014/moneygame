@@ -47,6 +47,8 @@ function repairAction($smarty) {
      $infoUs['email']  = isset($_POST['email']) ? trim($_POST['email']) : null;
      $infoUs['nick']   = isset($_POST['nick']) ? trim($_POST['nick']) : null;
      $infoUs['payeer'] = isset($_POST['payeer']) ? trim($_POST['payeer']) : '';
+     $infoUs['class']  = isset($_POST['class']) ? getClassOfJson($_POST['class']) : '';
+
     
    // Фильтруем данные инпутов
     $data = filtersRegFormsAction($data, $infoUs);
@@ -83,6 +85,15 @@ function repairAction($smarty) {
          $data['success']   = 0;
          $data['messages'] .= '-Заполните поле ник <br />';
      }
+     
+    if ($infoUs['payeer']) {
+         $data = getAccountPayeerAction($data, $infoUs['payeer'], $infoUs['class']);
+     } else {
+         if ($infoUs['payeer'] !== '') {
+          $data['success']   = 0;
+          $data['messages'] .= '-Некорректный payeer <br />';   
+         }
+     } 
      
      //Если !success значит ошибок нету
      if (!isset($data['success'])) {
@@ -149,6 +160,23 @@ function repairAction($smarty) {
      }     
      return $data;     
  }
+ 
+    //Проверяем существование payeer кошелька
+    function getAccountPayeerAction($data, $purse, $payeer) {
+       if ($purse) {
+            if ($payeer -> isAuth()) {
+                if($payeer -> checkUser(['user' => $purse])) {
+                    $data['messages']  = '';
+            } else {
+                    $data['messages'] .= 'Аккаунт не существует';
+            }
+        } else {
+            $data['messages'] .= $payeer->getErrors();
+          }
+        }
+        
+        return $data;
+    }
 //<
  
   //Создаёт нового пользователя

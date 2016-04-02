@@ -132,7 +132,7 @@ function validPayeer(self, id) {
         type: "POST",
         async: true,
         url: "?controller=payeer&action=getAccount",
-        data: {'payeer': $(self).val()},
+        data: {'payeer': $(self).val(), 'class': payeerclass},
          dataType: 'json',
          success: function (data) {
            getError(data, id);
@@ -183,7 +183,8 @@ function regNewUser() {
        psw1: $('#YesPswReg').val(),
        email: $('#email').val(),
        nick: $('#nick').val(),
-       payeer: $('#payeer').val()
+       payeer: $('#payeer').val(),
+      'class': payeerclass
    }; 
     
    $.ajax({

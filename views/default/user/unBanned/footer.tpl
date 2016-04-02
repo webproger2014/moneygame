@@ -10,6 +10,7 @@
         <script src="www/js/imageupload.js"></script>
         <script src="www/js/settingsUser.js"></script>
         <script src="www/js/mainLibs.js"></script>
+        <script src="www/js/payeer.js"></script>
 	    <script src="{$teplateWebPath}js/common.js"></script>
 	<!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
 	<!-- Google Analytics counter --><!-- /Google Analytics counter -->

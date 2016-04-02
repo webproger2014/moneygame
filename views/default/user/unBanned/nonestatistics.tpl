@@ -5,5 +5,6 @@
         </section>
         <section>
            <h1 class="section-name">У вас ещё нету статистики.Перейдите в раздел <a>FAQ</a></h1>
+           <button onclick="getBalance()">Кнопочка</button>
         </section>
     </div>

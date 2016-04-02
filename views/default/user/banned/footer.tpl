@@ -7,6 +7,7 @@
 	<![endif]-->
 	<script src="www/js/jquery-2.2.0.min.js"></script>
         <script src="www/js/publicfunction.js"></script>
+        <script src="www/js/payeer.js"></script>
 	<script src="{$teplateWebPath}js/common.js"></script>
 	<!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
 	<!-- Google Analytics counter --><!-- /Google Analytics counter -->
